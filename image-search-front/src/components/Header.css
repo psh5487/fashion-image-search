@@ -1,0 +1,46 @@
+#header-row{
+    background: black;
+    height : 8vh;
+    font-size: 3vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#header-category-row{
+    background: white;
+    height : 5vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border : 0.2px solid lightgray;
+}
+.header-text{
+    color: RGBA(255, 255, 255, 1.0);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-text:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header-category-text{
+     color: RGBA(0,0,0, 0.3);
+     text-decoration: none;
+     font-size: 2vh;
+     text-align: left;
+ }
+
+.header-category-text-active{
+    color: RGBA(0,0,0, 0.9);
+    text-decoration: none;
+    font-size: 2vh;
+    text-align: left;
+}
+
+.header-category-text:hover{
+    color: RGBA(0,0,0, 0.9);
+    text-decoration: none;
+    cursor: pointer;
+}
