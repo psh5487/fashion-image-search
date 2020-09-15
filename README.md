@@ -253,7 +253,7 @@ searchHits.forEach(hit->{
 ## 첫 시도 ORB 특징점 기반 유사도 측정 결과 및 시사점
 - React와 Typescript로 프론트 UI를 만들어 결과 확인     
 - 똑같은 이미지 구분에 있어서는 좋은 성능을 보였음
-- 하지만, 전반적으로 검색 결과가 유사한 이미지 순으로 전혀 보이지 않았음
+- 하지만, 전반적으로 검색 결과가 **유사한 이미지 순으로 전혀 보이지 않았음**
 
 - 옷에 특화된 이미지 검색 방법 필요성 인지   
 - 특징점을 한 번에 잡는 것이 아닌, **옷의 색상, 패턴, 모양**의 특징을 나누어 잡아야 함을 깨달음   
@@ -291,7 +291,8 @@ Local Binary Patterns(LBP)는 이미지 질감(texture) 및 얼굴 인식 등에
 - Euclidian 거리 계산 
 <img width="400" alt="유클리드" src="https://user-images.githubusercontent.com/26567880/93158531-3dcff900-f747-11ea-9090-a9061a018292.png">
 
-### LBP 알고리즘 구현 후, Test
+### LBP 알고리즘 Test
+- LBP 알고리즘은 직접 구현
 - 일반 사물에 있어서는 완벽히 구분
 <img width="500" alt="textureTest" src="https://user-images.githubusercontent.com/26567880/93158939-28a79a00-f748-11ea-8903-d9f62193af07.png">
 
