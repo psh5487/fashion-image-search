@@ -18,13 +18,13 @@ Naver 인턴 - 유사 패션 이미지 검색 서비스 개발
 ## 동일 프로젝트 타 Repository
 회사 관련 정보들은 모두 제거했습니다. 
 
-### Spring Core Server   
+- Spring Core Server   
 https://github.com/psh5487/fashion-image-search/tree/master/image-search-core-server
 
-### Flask Tensorflow Imagenet Feature 처리 Server   
+- Flask Tensorflow Imagenet Feature 처리 Server   
 https://github.com/psh5487/fashion-image-search/tree/master/image-search-tensorflow-server
 
-### Front UI   
+- Front UI   
 https://github.com/psh5487/fashion-image-search/tree/master/image-search-front
 
 
