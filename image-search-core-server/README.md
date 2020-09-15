@@ -329,7 +329,7 @@ public class ImageSearchRes implements Comparable<ImageSearchRes> {
 
 이미지 전체 조회, 이미지 저장, 유사 이미지 검색 등 메인 컨트롤러(ImageController)에서 호출하는 메소드 포함
 
-1. ##### <u>이미지 전체 조회</u>
+1. 이미지 전체 조회
 
 ```java
 List<ImageSearchRes> findAllImages();
@@ -349,7 +349,7 @@ final FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders
         .boostMode(CombineFunction.REPLACE);
 ```
 
-2. ##### <u>이미지 저장</u>
+2. 이미지 저장
 
 ```java
 void saveImage(final Image image);
@@ -369,7 +369,7 @@ elasticSearchRestClientServiceImpl.saveRequestHandler(image, "img_list", "_doc")
 flaskApiHandlingServiceImpl.saveImagenetFeature(image);
 ```
 
-3. ##### <u>유사 이미지 검색 결과 조회</u>
+3. 유사 이미지 검색 결과 조회
 
 ```java
 List<ImageSearchRes> searchImage(final ImageSearchReq imageSearchReq);	
@@ -428,7 +428,7 @@ ScriptScoreQueryBuilder scriptScoreQueryBuilder =
 return elasticSearchRestClientServiceImpl.searchRequestHandler(scriptScoreQueryBuilder, "_score", 0, 1000, "img_list");
 ```
 
-4. ##### <u>단일 기준으로 검색시 Score 정규화</u>
+4. 단일 기준으로 검색시 Score 정규화
 
 ```java
 List<ImageSearchRes> sortAndNormalizeSearchTypeSingleImageSearchResult(final List<ImageSearchRes> result);	
@@ -446,7 +446,7 @@ final float maxScore = result.get(result.size() - 1).getScore(); // 최대 스�
 result.forEach(r -> r.setScore((r.getScore() - minScore) / (maxScore - minScore)));
 ```
 
-5. ##### <u>복합 기준 조회시 Score 정규화 및 정렬</u>
+5. 복합 기준 조회시 Score 정규화 및 정렬
 
 ```java
 List<ImageSearchRes> sortAndNormalizeSearchTypeAllImageSearchResult(
@@ -576,17 +576,17 @@ IndexResponse indexResponse = restHighLevelClient.index(request, RequestOptions.
 
 이미지 전처리 작업 서비스 / 구현체
 
-1. #### 이미지 URL 주소로부터 BufferedImage 객체로 변환
+1. 이미지 URL 주소로부터 BufferedImage 객체로 변환
 ```
 BufferedImage urlToBufferedImage(final String ImgUrl) throws IOException;
 ```
 
-2. #### BufferedImage 로부터 OpenCV에서 제공하는 Mat 객체로 변환
+2. BufferedImage 로부터 OpenCV에서 제공하는 Mat 객체로 변환
 ```
 Mat bufferedImageToMat(final BufferedImage bufferedImage) throws IOException;
 ```
 
-3. #### Mat 객체를 2차원 배열로 변환
+3. Mat 객체를 2차원 배열로 변환
 
 - ex) {{"1", "2", "3"}, {"4", "5", "6"}}
 
@@ -594,7 +594,7 @@ Mat bufferedImageToMat(final BufferedImage bufferedImage) throws IOException;
 String[][] MatDescriptorsTo2DArray(Mat descriptors, int rows, int cols);
 ```
 
-4. #### 2차원 특징점 배열을 1차원 List<String>으로 변환
+4. 2차원 특징점 배열을 1차원 List<String>으로 변환
 
 - ex) {{"1", "2", "3"}, {"4", "5", "6"}} -> {"1,2,3", "4,5,6"}
 
@@ -622,7 +622,7 @@ color:
 private float resizeRatio;
 ```
 
-1. ##### <u>이미지 중앙 기준으로 주요 RGB 색상 추출하기</u>
+1. 이미지 중앙 기준으로 주요 RGB 색상 추출하기
 
 ```java
 List<String> getColorFromImageCenter(BufferedImage bufferedImage, boolean isHexColor);
@@ -659,7 +659,7 @@ for (int x = 0; x < croppedImage.getWidth(); x++) {
 }
 ```
 
-2. ##### <u>RGB ColorMap을 RGB Hex or HSV List로 변환하기</u>
+2. RGB ColorMap을 RGB Hex or HSV List로 변환하기
 
 ```java
 private static List<String> translateRGBColorMapToRGBHexOrHSV
@@ -684,7 +684,7 @@ List<String> colorValueStrList = new ArrayList<>();
 
 ### TextureProcessingService.java / TextureProcessingServiceImpl.java
 
-1. #### Mat 이미지를 중앙 위주로 자르기 
+1. Mat 이미지를 중앙 위주로 자르기 
 ```
 Mat cropImage(Mat img);
 ```
@@ -703,7 +703,7 @@ Rect area = new Rect(new Point(x, y), new Point(w, h));
 Mat imgCropped = img.submat(area);
 ```
 
-2. #### Mat 이미지 CannyEdge 처리하여 노이즈 제거하기
+2. Mat 이미지 CannyEdge 처리하여 노이즈 제거하기
 ```
 Mat cannyEdgeImage(Mat img);
 ```
@@ -732,7 +732,7 @@ Mat cannyImg = new Mat(img.size(), CvType.CV_8UC3, Scalar.all(0));
 img.copyTo(cannyImg, detectedEdges);
 ```
 
-3. #### Mat 이미지의 Uniform LBP 히스토그램 구하기
+3. Mat 이미지의 Uniform LBP 히스토그램 구하기
 ```
 int[] procImageToULBPHistogram(Mat img);
 ```
@@ -772,7 +772,7 @@ Open CV Image Feature Detection & Description을 활용한 이미지 프로세�
 
 두 가지 이미지 특징점 검출/분석 엔진(ORB / BRISK)에 대한 구현 사항
 
-1. #### <u>ORB 엔진을 이용한 이미지 특징점 검출</u>
+1. ORB 엔진을 이용한 이미지 특징점 검출
 
 ```java
 List<String> procImageUsingORB(Mat img);
@@ -799,7 +799,7 @@ Mat descriptors = new Mat();
 orbDetector.detectAndCompute(img, new Mat(), keyPoints, descriptors);
 ```
 
-2. #### <u>BRISK 엔진을 이용한 이미지 특징점 검출</u>
+2. BRISK 엔진을 이용한 이미지 특징점 검출
 
 ```java
 List<String> procImageUsingBrisk(Mat img);
@@ -833,7 +833,7 @@ python:
 private String flask_address;
 ```
 
-1. #### 서비스에서 요청을 보내면, Flask에서 TF 특징점(imagenet_feature) 추출하고, ES 의 'img_list' 저장
+1. 서비스에서 요청을 보내면, Flask에서 TF 특징점(imagenet_feature) 추출하고, ES 의 'img_list' 저장
 
 ```
 void saveImagenetFeature(Image image) throws IOException
