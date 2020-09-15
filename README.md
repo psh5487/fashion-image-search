@@ -15,7 +15,7 @@ Naver 인턴 - 유사 패션 이미지 검색 서비스 개발
 - React
 - Typescript
 
-## 동일 프로젝트 타 Repository
+## 동일 프로젝트의 Repository
 회사 관련 정보들은 모두 제거했습니다. 
 
 - Spring Core Server   
