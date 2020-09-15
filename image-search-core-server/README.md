@@ -1,5 +1,17 @@
 # 유사 패션 이미지 검색 서비스 Spring Core 서버
 
+## 동일 프로젝트의 Repository
+회사 관련 정보들은 모두 제거했습니다. 
+
+- Spring Core Server   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-core-server
+
+- Flask Tensorflow Imagenet Feature 처리 Server   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-tensorflow-server
+
+- Front UI   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-front
+
 ## 목차
 
 [1. Spring Boot 프로젝트 구조](#spring-boot-프로젝트-구조)
@@ -15,8 +27,7 @@
 
 ## 서비스 아키텍처
 
-- img
-
+<img width="550" alt="구조" src="https://user-images.githubusercontent.com/26567880/93172333-a0d08880-f765-11ea-8091-3206a113893a.png">
 
 ## Spring Boot 프로젝트 구조
 
@@ -71,14 +82,14 @@ Content-Type : application/json
     "itemId": "4816029088",
     "itemName": "STS1619 10컬러 무지 남녀공용 오버핏 박시핏 라운드티 티셔츠 (S~3XL) 소녀나라",
     "categoryId": "00000030",
-    "imgUrl": "https://shop-phinf.pstatic.net/20200210_262/1581301917288vHeVa_JPEG/105713_1.jpg?type=w640"
+    "imgUrl": "https://shop.example.net/20200210_262/1581301917288vHeVa_JPEG/105713_1.jpg?type=w640"
 }
 ```
 
 ### 더미 이미지 저장
 
-| Method | Path             | Explanation                                 |
-| ------ | ---------------- | ------------------------------------------- |
+| Method | Path              | Explanation                                 |
+|--------|-------------------|---------------------------------------------|
 | GET    | /images/saveDummy | 더미 이미지 프로세싱 후 Elasticsearch에 Doucment 저장 |
 
 * 요청 예시 
@@ -597,8 +608,6 @@ List<String> ArrayDescriptorsTo1DList(final String[][] feature_matrix);
 이미지 프로세싱 - 색상 이용 작업 관련 서비스 / 구현체
 
 이미지의 가운데를 자른 새로운 이미지에 대해서 각 픽셀 별로 가장 빈도수가 높은 색상값(RGB/HSV)를 계산하는 서비스 
-
-- img
 
 해당 서비스에서 사용하는 이미지 크기 재조정 비율과 관련된 설정
 
