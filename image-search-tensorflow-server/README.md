@@ -16,7 +16,9 @@ https://github.com/psh5487/fashion-image-search/tree/master/image-search-front
 
 <img width="550" alt="flask_arch" src="https://user-images.githubusercontent.com/26567880/93169420-04f04e00-f760-11ea-842c-3c7451f970d7.png">
 
-## Flask Tensorflow Imagenet Feature 처리 Server 구조
+## Flask Tensorflow Imagenet Feature 처리 Server
+
+## 구조
 - model
   - inception_v3  
 - app.py  
