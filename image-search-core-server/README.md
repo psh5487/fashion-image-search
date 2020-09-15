@@ -864,7 +864,7 @@ HttpClient client = HttpClientBuilder.create().build();
 client.execute(httpPost);
 ```
 
-- Flask 서버 : 주소 
+- Flask 서버 : https://github.com/psh5487/fashion-image-search/tree/master/image-search-tensorflow-server 
 
 
 ## 시작하기
@@ -875,7 +875,7 @@ client.execute(httpPost);
 
 - Open CV 3.2.0 버전 로컬 개발 환경에 설치
 
-- Python Flask 서버 설치 : 주소
+- Python Flask 서버 설치
 
 ### Elasticsearch 설정 
 
