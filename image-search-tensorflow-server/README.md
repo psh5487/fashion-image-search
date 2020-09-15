@@ -1,15 +1,27 @@
 # 유사 패션 이미지 검색 서비스 Tensorflow Imagenet Feature 처리 서버
 
+## 동일 프로젝트 타 Repository
+회사 관련 정보들은 모두 제거했습니다.
+
+- Spring Core Server   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-core-server
+
+- Flask Tensorflow Imagenet Feature 처리 Server   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-tensorflow-server
+
+- Front UI   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-front
+
 ## 서비스 아키텍쳐
-- img
 
-## 프로젝트 구조
-model  
-ㄴinception_v3  
-app.py  
-requirements.txt  
+<img width="550" alt="flask_arch" src="https://user-images.githubusercontent.com/26567880/93169420-04f04e00-f760-11ea-842c-3c7451f970d7.png">
 
-## 프로젝트 설명
+## Flask Tensorflow Imagenet Feature 처리 Server 구조
+- model
+  - inception_v3  
+- app.py  
+
+## 역할
 이미지 URL을 활용하여 이미지의 TF 특징점을 뽑아 elasticsearch에 저장하는 역할을 한다.
 
 ### TF 특징점
