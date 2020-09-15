@@ -15,6 +15,19 @@ Naver 인턴 - 유사 패션 이미지 검색 서비스 개발
 - React
 - Typescript
 
+## 동일 프로젝트 타 Repository
+회사 관련 정보들은 모두 제거했습니다. 
+
+### Spring Core Server   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-core-server
+
+### Flask Tensorflow Imagenet Feature 처리 Server   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-tensorflow-server
+
+### Front UI   
+https://github.com/psh5487/fashion-image-search/tree/master/image-search-front
+
+
 ## 프로젝트 아키텍쳐
 <img width="550" alt="아키텍쳐" src="https://user-images.githubusercontent.com/26567880/93092670-b2b91980-f6da-11ea-846a-93ee9bcddd11.png">
 
@@ -298,7 +311,7 @@ Local Binary Patterns(LBP)는 이미지 질감(texture) 및 얼굴 인식 등에
 ![패턴 test](https://user-images.githubusercontent.com/26567880/93163166-62c96980-f751-11ea-9ae0-609df99a6824.png)
 ![민무늬test](https://user-images.githubusercontent.com/26567880/93163199-77a5fd00-f751-11ea-8e7a-287b4a4f53b5.png)
 
-### 한계
+### 한계점
 - 모델들의 포즈가 다양하거나 이미지의 특징점이 배경에서 잡히는 경우, 결과 방해
 - **중앙 위주로 자르는 방식 시도** → 좀 더 나은 결과를 보임
 - 하지만 중앙 위주로 자른 이미지에도 옷이 아닌 것들(손, 핸드폰, 다리 사이 배경 등)이 잡힐 경우, 결과 방해
@@ -306,6 +319,10 @@ Local Binary Patterns(LBP)는 이미지 질감(texture) 및 얼굴 인식 등에
 ## 기계 학습 모델을 사용하여 TF(Tensor Flow)특징점 뽑기 시도
 ### TF 특징점
 - Tensorflow Imagenet Inception_v3 모델을 기반으로 추출한 imagenet_feature
+
+### Flask Server
+- Python Flask Server 사용
+- TF 특징점을 뽑은 후, ES에 저장
 
 ### Inception_v3
 Inception-v3은 ImageNet 데이터베이스의 1백만 개가 넘는 이미지에 대해 훈련된 컨벌루션 신경망이다. 이 네트워크는 48개의 계층으로 구성돼 있으며, 이미지 입력 크기는 299x299 이다. Inception-v3는 이미지를 대표하는 다양한 특징들을 학습하였고, 그 결과 이미지를 1,000가지 사물 범주로 분류할 수 있는 기능을 갖추고 있다. 
@@ -316,6 +333,14 @@ Inception-v3은 ImageNet 데이터베이스의 1백만 개가 넘는 이미지�
 - 유사 패션 이미지 검색에 있어서 좋은 성능을 보이지 못함
 - 결과적으로, **색상과 패턴의 점수를 합쳐 계산하는 방식이 가장 좋은 결과를 보임**
 
+## 쇼핑팀 인턴 소감
+
+- 커머스 개발에 있어서 다양한 시도들을 해볼 수 있고, 실제로 여러 도전들이 이루어지고 있다는 점이 인상 깊었음
+- 프로덕션 레벨에 이르기까지는 또 다른 차원의 깊이가 필요하다는 것을 깨달았음
+- 실제 이론을 실무에서 활용해보는 과정이 흥미로웠고, 정답이 정해져 있지 않은 상황 속에서 가능성을 찾아가는 것이 쉽지는 않지만 즐거웠음   
+- 매주 개발 회의에 참가하여 네이버의 코드 리뷰 문화와 쇼핑 팀에서 사용하는 기술 스택에 대해 알아볼 수 있었음
+- 프로 개발자로 성장하기 위해서는 JAVA와 Spring에 대한 꼼꼼한 이해가 뒷받침되어야 함!
+- JAVA, Spring Framework 공부 열심히 하고, 설계에 대한 고민도 해보자...
 
 
 
