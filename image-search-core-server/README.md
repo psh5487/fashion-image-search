@@ -216,7 +216,7 @@ return imageServiceImpl.sortAndNormalizeSearchTypeAllImageSearchResult(
 
 ## Domain & DTO
 
-##### **Image.java**
+### **Image.java**
 
 - Image 도메인 클래스
 
@@ -258,7 +258,7 @@ public class Image {
 }
 ```
 
-##### **ImageSearchReq.java**
+### **ImageSearchReq.java**
 
 - Image 검색 요청 DTO
 
@@ -275,7 +275,7 @@ public class ImageSearchReq {
 }
 ```
 
-##### **ImageSearchRes.java**
+### **ImageSearchRes.java**
 
 - Image 검색 응답 DTO
 
@@ -323,7 +323,7 @@ public class ImageSearchRes implements Comparable<ImageSearchRes> {
 
 ## 서비스
 
-#### **ImageService.java / ImageServiceImpl.java**
+### **ImageService.java / ImageServiceImpl.java**
 
 메인 서비스 / 구현체
 
@@ -499,7 +499,7 @@ for (int j = 0; j < sortedAndNormalizedResult.size(); j++) {
 }
 ```
 
-#### ElasticSearchRestClientService.java / ElasticSearchRestClientServiceImpl.java
+### ElasticSearchRestClientService.java / ElasticSearchRestClientServiceImpl.java
 
 ElasticSearch 검색 및 저장 요청 서비스 / 구현체
 
@@ -572,7 +572,7 @@ IndexResponse indexResponse = restHighLevelClient.index(request, RequestOptions.
 ```
 
 
-#### CommonImageProcessingService.java / CommonImageProcessingServiceImpl.java
+### CommonImageProcessingService.java / CommonImageProcessingServiceImpl.java
 
 이미지 전처리 작업 서비스 / 구현체
 
@@ -603,7 +603,7 @@ List<String> ArrayDescriptorsTo1DList(final String[][] feature_matrix);
 ```
 
 
-#### ColorProcessingService.java / ColorProcessingServiceImpl.java
+### ColorProcessingService.java / ColorProcessingServiceImpl.java
 
 이미지 프로세싱 - 색상 이용 작업 관련 서비스 / 구현체
 
@@ -682,7 +682,7 @@ List<String> colorValueStrList = new ArrayList<>();
 - 파라미터로 받는 isRGBHex 값에 따라 해당 메소드의 return 값을 RGB Hex String List 또는 HSV Sting List로 분기해서 처리
 
 
-#### TextureProcessingService.java / TextureProcessingServiceImpl.java
+### TextureProcessingService.java / TextureProcessingServiceImpl.java
 
 1. #### Mat 이미지를 중앙 위주로 자르기 
 ```
@@ -764,7 +764,7 @@ int[] procImageToULBPHistogram(Mat img);
   ​	2) 복잡한 패턴일수록, histogram[NON_UNIFORM_BIN]의 값이 증가 
 
 
-#### DescriptorProcessingService.java / DescriptorProcessingServiceImpl.java
+### DescriptorProcessingService.java / DescriptorProcessingServiceImpl.java
 
 이미지 프로세싱 - 특징점 이용 작업 서비스 / 구현체
 
@@ -772,7 +772,7 @@ Open CV Image Feature Detection & Description을 활용한 이미지 프로세�
 
 두 가지 이미지 특징점 검출/분석 엔진(ORB / BRISK)에 대한 구현 사항
 
-1. ##### <u>ORB 엔진을 이용한 이미지 특징점 검출</u>
+1. #### <u>ORB 엔진을 이용한 이미지 특징점 검출</u>
 
 ```java
 List<String> procImageUsingORB(Mat img);
@@ -799,7 +799,7 @@ Mat descriptors = new Mat();
 orbDetector.detectAndCompute(img, new Mat(), keyPoints, descriptors);
 ```
 
-2. ##### <u>BRISK 엔진을 이용한 이미지 특징점 검출</u>
+2. #### <u>BRISK 엔진을 이용한 이미지 특징점 검출</u>
 
 ```java
 List<String> procImageUsingBrisk(Mat img);
@@ -814,7 +814,7 @@ List<String> procImageUsingBrisk(Mat img);
 	-하지만 검색 품질을 크게 높이지 않아 현재 사용하지 않음 
 
 
-#### FlaskApiHandlingService.java / FlaskApiHandlingServiceImpl.java
+### FlaskApiHandlingService.java / FlaskApiHandlingServiceImpl.java
 
 이미지 프로세싱 - TF 특징점 작업 관련 서비스 / 구현체
 
